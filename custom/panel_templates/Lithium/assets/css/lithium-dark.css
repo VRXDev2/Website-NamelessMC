@@ -1,0 +1,161 @@
+/**
+ *	LITHIUM TEMPLATE
+ *	By Xemah | https://xemah.com
+ *
+**/
+
+/** DARK THEME **/
+
+[data-theme="dark"] {
+	--background-page: #100f10;
+	--background-primary: #1b1b1b;
+	--background-secondary: #242424;
+	--background-hover: rgba(255, 255, 255, 0.02);
+	--text-primary: rgba(255, 255, 255, 0.75);
+	--text-secondary: rgba(255, 255, 255, 0.5);
+	--secondary: rgba(255, 255, 255, 0.04);
+	--shadow-soft: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
+	--shadow-hard: 0 2px 8px 0 rgba(0, 0, 0, 0.5);
+	--divider: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] body {
+	background: var(--background-page);
+	color-scheme: dark;
+}
+
+[data-theme="dark"] .header.faded::before {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0, transparent), color-stop(30%, rgba(0, 0, 0, 0.18)), to(var(--background-page)));
+	background: linear-gradient(transparent 0, rgba(0, 0, 0, 0.18) 30%, var(--background-page) 100%);
+}
+
+[data-theme="dark"] .navbar {
+	background: var(--primary);
+}
+
+[data-theme="dark"] .navbar ::-webkit-scrollbar-thumb {
+	background: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .navbar ::-webkit-scrollbar-thumb:hover {
+	background: rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="dark"] .navbar-brand {
+	color: white;
+	font-weight: 700;
+}
+
+[data-theme="dark"] .navbar-brand a:hover {
+	color: rgba(255, 255, 255, 0.75);
+}
+
+[data-theme="dark"] .navbar .nav-link {
+	color: rgba(255, 255, 255, 0.8);
+	font-weight: var(--font-weight-bold);
+}
+
+[data-theme="dark"] .navbar .nav-link:hover {
+	color: rgba(255, 255, 255, 0.95);
+}
+
+[data-theme="dark"] .navbar .nav-link.active {
+	color: white;
+}
+
+[data-theme="dark"] .navbar .nav-link.active::after {
+	background: white;
+}
+
+[data-theme="dark"] .navbar .nav-link.highlighted {
+	background: #fff;
+	color: var(--primary);
+	font-weight: var(--font-weight-heavy);
+}
+
+[data-theme="dark"] .navbar-toggler {
+	color: rgba(255, 255, 255, 0.75);
+}
+
+[data-theme="dark"] .navbar-toggler:hover {
+	color: white;
+}
+
+[data-theme="dark"] .navbar-user {
+	background: var(--background-dark);
+}
+
+@media (min-width: 992px) {
+	[data-theme="dark"] .navbar-modern {
+		background: none;
+	}
+	[data-theme="dark"] .navbar-modern .nav-link {
+		font-weight: var(--font-weight-bold);
+	}
+	[data-theme="dark"] .navbar-modern .nav-link.highlighted {
+		font-weight: 700;
+	}
+}
+
+[data-theme="dark"] .oc-nav-link {
+	font-weight: var(--font-weight-medium);
+	opacity: 1;
+}
+
+[data-theme="dark"] .oc-nav-link:hover {
+	background: rgba(255, 255, 255, 0.04);
+}
+
+[data-theme="dark"] .announcement-content {
+	color: var(--text-primary);
+}
+
+[data-theme="dark"] .forum-node {
+	background: rgba(255, 255, 255, 0.02);
+}
+
+[data-theme="dark"] .forum-node:hover {
+	background: rgba(255, 255, 255, 0.03);
+}
+
+[data-theme="dark"] .form-control {
+	background: rgba(255, 255, 255, 0.04);
+}
+
+[data-theme="dark"] .form-control option {
+	background: var(--background-primary);
+	color: var(--text-primary);
+}
+
+[data-theme="dark"] .form-control:-webkit-autofill,
+[data-theme="dark"] .form-control:-webkit-autofill:hover,
+[data-theme="dark"] .form-control:-webkit-autofill:focus {
+	-webkit-text-fill-color: rgba(255, 255, 255, 0.75);
+	caret-color: rgba(255, 255, 255, 0.75);
+	transition: all;
+	transition-delay: 99999s;
+}
+
+[data-theme="dark"] .poll-option-label {
+	background: rgba(255, 255, 255, 0.025);
+}
+
+[data-theme="dark"] .poll-option-bar {
+	background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] ::-moz-selection {
+	background: rgba(255, 255, 255, 0.075);
+}
+
+[data-theme="dark"] ::selection {
+	background: rgba(255, 255, 255, 0.075);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+	background: rgba(255, 255, 255, 0.075);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+	background: rgba(255, 255, 255, 0.1);
+}

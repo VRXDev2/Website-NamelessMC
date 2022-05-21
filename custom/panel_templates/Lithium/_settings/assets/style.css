@@ -1,0 +1,761 @@
+/**
+ *	LITHIUM TEMPLATE
+ *	By Xemah | https://xemah.com
+ *
+**/
+
+html {
+	overflow: hidden;
+}
+
+@keyframes lithium-loader-icon {
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.lithium-body {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: #fff;
+	font-family: 'Roboto', sans-serif;
+	font-size: 13px;
+	font-weight: 300;
+	line-height: 1.6;
+	height: 100vh;
+	width: 100vw;
+	z-index: 999999;
+	color-scheme: dark;
+}
+
+.lithium-body * {
+	box-sizing: border-box;
+}
+
+.lithium-body:not(.lithium-loaded),
+.lithium-body:not(.lithium-loaded) * {
+	transition: none !important;
+}
+
+.lithium-loader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #212121;
+	height: 100vh;
+	width: 100vw;
+	color: #fff;
+	z-index: 9999999;
+	transition: opacity 1s ease, visibility 1s ease;
+}
+
+.lithium-body.lithium-loaded .lithium-loader {
+	opacity: 0;
+	visibility: hidden;
+}
+
+.lithium-loader-icon {
+	height: 35px;
+	width: 35px;
+	border: solid 4px;
+	border-color: rgba(255, 255, 255, 0.75) rgba(255, 255, 255, 0.1) rgba(255, 255, 255, 0.1) rgba(255, 255, 255, 0.1);
+	border-radius: 50%;
+	animation: lithium-loader-icon 2s linear infinite;
+}
+
+.lithium-wrapper {
+	position: absolute;
+	display: flex;
+	height: 100%;
+	width: 100%;
+}
+
+.lithium-sidebar {
+	display: flex;
+	flex-direction: column;
+	background: #212121;
+	height: 100%;
+	width: 300px;
+	color: #fff;
+}
+
+@media (max-width: 600px) {
+	.lithium-sidebar {
+		width: 100%;
+	}
+}
+
+.lithium-sidebar-header {
+	display: flex;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.5);
+	height: 50px;
+	padding: 4px 6px;
+}
+
+.lithium-sidebar-header h1 {
+    flex-grow: 1;
+	margin: 0;
+	font-size: 18px;
+	font-weight: 300;
+    text-align: center;
+	text-transform: uppercase;
+}
+
+.lithium-sidebar-body {
+	flex-grow: 1;
+	padding: 8px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+.lithium-sidebar-body::-webkit-scrollbar {
+	width: 10px;
+}
+
+.lithium-sidebar-body::-webkit-scrollbar-track {
+	background: rgba(255, 255, 255, 0.05);
+}
+
+.lithium-sidebar-body::-webkit-scrollbar-thumb {
+	background: rgba(255, 255, 255, 0.5);
+	border: solid 3px #212121;
+	border-radius: 5px;
+}
+
+.lithium-sidebar-body::-webkit-scrollbar-thumb:hover {
+	background: rgba(255, 255, 255, 0.75);
+}
+
+.lithium-sidebar-footer {
+	display: flex;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.5);
+	height: 50px;
+	width: 100%;
+	padding: 4px 12px;
+}
+
+.lithium-sidebar-footer-content {
+	flex-grow: 1;
+	color: rgba(255, 255, 255, 0.75);
+	font-size: 12px;
+	font-weight: 300;
+}
+
+.lithium-preview {
+	flex-grow: 1;
+}
+
+@media (max-width: 600px) {
+	.lithium-preview {
+		display: none;
+	}
+}
+
+.lithium-preview-frame {
+	height: 100%;
+	width: 100%;
+	border: none;
+}
+
+.lithium-button {
+	background: rgba(255, 255, 255, 0.05);
+    padding: 6px 16px;
+    color: rgba(255, 255, 255, 0.5) !important;
+    font-size: 12px;
+    font-weight: 400;
+	font-style: normal;
+    border-radius: 2px;
+	text-align: center;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: opacity 0.25s ease;
+}
+
+.lithium-button:hover {
+	opacity: 0.9;
+}
+
+.lithium-button-update {
+	background: #28a745 !important;
+	color: #fff !important;
+}
+
+.lithium-button-download {
+	display: block;
+	background: #28a745 !important;
+	color: #fff !important;
+}
+
+.lithium-button-success {
+	background: #28a745 !important;
+	color: #fff !important;
+}
+
+.lithium-button-more {
+    padding: 6px 12px;
+    font-size: 11px;
+}
+
+.lithium-button-disabled {
+	opacity: 0.5;
+	user-select: none;
+	pointer-events: none;
+}
+
+.lithium-button i {
+	width: 15px;
+    text-align: center;
+    margin-right: 5px;
+}
+
+.lithium-panels {
+	position: relative;
+}
+
+.lithium-panel {
+	display: flex;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	width: 100%;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateX(20px);
+	transition: visibility 0.1s ease, opacity 0.1s ease, transform 0.1s ease;
+}
+
+.lithium-panel#lithium-panel-menu {
+	transform: translateX(-20px);
+}
+
+.lithium-panel-active {
+	opacity: 1;
+	visibility: visible;
+	transform: translateX(0);
+	transition: visibility 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
+}
+
+.lithium-panel-active#lithium-panel-menu {
+	transform: translateX(0);
+}
+
+.lithium-panel:not(.lithium-panel-active) {
+	height: 0;
+	overflow: hidden;
+}
+
+.lithium-panel-content {
+	width: 100%;
+}
+
+.lithium-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 8px 4px 12px;
+    margin-bottom: 16px;
+    border-bottom: solid 1px rgba(255, 255, 255, 0.1);
+}
+
+.lithium-panel-header > a {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(255, 255, 255, 0.025);
+	width: 30px;
+	height: 30px;
+	border-radius: 0.25rem;
+	color: rgba(255, 255, 255, 0.25);
+	font-size: 17px;
+	transition: background 0.25s ease;
+}
+
+.lithium-panel-header > a:hover {
+	background: rgba(255, 255, 255, 0.05);
+}
+
+.lithium-panel-title {
+    color: rgba(255, 255, 255, 0.75);
+	font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.lithium-panel-body {
+	padding-bottom: 16px;
+}
+
+.lithium-panel-menu {
+	display: flex;
+	flex-direction: column;
+}
+
+.lithium-panel-menu-item {
+	background: rgba(255, 255, 255, 0.1);
+	padding: 7px 14px;
+	border-radius: 4px;
+	color: rgba(255, 255, 255, 0.75);
+	font-size: 13px;
+	font-weight: 400;
+	transition: background 0.25s ease, color 0.25s ease;
+}
+
+.lithium-panel-menu-item:hover {
+	background: rgba(255, 255, 255, 0.15);
+	color: rgba(255, 255, 255, 0.9);
+}
+
+.lithium-panel-menu-item:not(:first-child) {
+	margin-top: 8px;
+}
+
+.lithium-input-groups {
+	counter-reset: input-groups-counter 0;
+}
+
+.lithium-input-group {
+	counter-increment: input-groups-counter;
+}
+
+.lithium-input-group-divider {
+	position: relative;
+	display: flex;
+	align-items: center;
+	margin: 16px 0;
+	color: rgba(255, 255, 255, 0.4);
+	font-size: 12px;
+	font-weight: 300;
+	text-align: center;
+	text-transform: uppercase;
+	font-style: italic;
+}
+
+.lithium-input-group-divider::before,
+.lithium-input-group-divider::after {
+	content: '';
+	flex: 1;
+	border-bottom: dashed 1px rgba(255, 255, 255, 0.1);
+}
+  
+.lithium-input-group-divider:not(:empty)::before {
+	margin-right: 12px;
+}
+  
+.lithium-input-group-divider:not(:empty)::after {
+	margin-left: 12px;
+}
+
+.lithium-input-group-actions {
+	background: #212121;
+	position: absolute;
+	padding-left: 9px;
+	font-size: 14px;
+	right: 0;
+}
+
+.lithium-input-group-actions a {
+	color: rgba(255, 255, 255, 0.25);
+}
+
+.lithium-input-group-actions a:hover {
+	color: rgba(255, 255, 255, 0.4);
+}
+  
+.lithium-input-group-counter::after {
+	content: counter(input-groups-counter);
+}
+
+.lithium-input {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.lithium-input + .lithium-input {
+	margin-top: 16px;
+}
+
+.lithium-input-label {
+	margin-right: auto;
+	margin-bottom: 0;
+	color: rgba(255, 255, 255, 0.9);
+	font-size: 13px;
+	font-weight: 300 !important;
+}
+
+.lithium-input-meta {
+	flex-basis: 100%;
+	margin-top: 6px;
+	color: rgba(255, 255, 255, 0.5);
+	font-size: 11.5px;
+	font-weight: 300;
+	font-style: italic;
+}
+
+.lithium-input-actions {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	width: 100%;
+	margin-top: 6px;
+	font-size: 12px;
+}
+
+.lithium-input-actions li {
+	list-style: none;
+}
+
+.lithium-input-actions li:not(:first-child)::before {
+	content: '\00A0\00A0|\00A0';
+	color: rgba(255, 255, 255, 0.25);
+}
+
+.lithium-input-actions a {
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.lithium-input-actions a:hover {
+	color: rgba(255, 255, 255, 0.75);
+}
+
+.lithium-input-error {
+	color: #f44336;
+	font-size: 11.5px;
+	font-weight: 400;
+}
+
+.lithium-input-error:not(:empty) {
+	margin-top: 6px;
+}
+
+.lithium-input-text,
+.lithium-input-text-short,
+.lithium-input-number,
+.lithium-input-textarea,
+.lithium-input-color,
+.lithium-input-select,
+.lithium-input-select-multiple,
+.lithium-input-code {
+	background: #323232;
+	width: 125px;
+    border: none;
+	border-radius: 4px;
+    box-shadow: none;
+    outline: none;
+	color: rgba(255, 255, 255, 0.8);
+	font-family: 'Roboto', sans-serif;
+	font-size: 12.5px;
+	font-weight: 100;
+    padding: 4px 8px;
+	transition: background 0.25s ease;
+}
+
+.lithium-input-text:focus,
+.lithium-input-text-short:focus,
+.lithium-input-number:focus,
+.lithium-input-textarea:focus,
+.lithium-input-color:focus,
+.lithium-input-select:focus,
+.lithium-input-code:focus {
+	background: #424242;
+}
+
+.lithium-input-text,
+.lithium-input-textarea,
+.lithium-input-code,
+.lithium-input-select-multiple {
+	flex-basis: 100%;
+	width: 100%;
+	margin-top: 4px;
+}
+
+.lithium-input-textarea,
+.lithium-input-code,
+.lithium-input-select-multiple {
+	min-height: 90px;
+	overflow-y: scroll;
+	resize: vertical;
+}
+
+.lithium-input-color {
+	/* border-right: solid 6px transparent; */
+}
+
+.lithium-input-code {
+	font-family: monospace;
+	min-height: 256px;
+	tab-size: 2;
+	resize: vertical;
+	overflow: hidden;
+	overflow-y: auto;
+}
+
+.lithium-input-select-multiple option {
+	padding: 2px 4px;
+	margin: 2px 0;
+}
+
+.lithium-input-switch {
+	position: relative;
+	background: #323232;
+	height: 20px;
+	width: 40px;
+	margin: 0;
+	border: none;
+	border-radius: 20px;
+	outline: none;
+	appearance: none;
+	cursor: pointer;
+	transition: background 0.2s ease;
+}
+
+.lithium-input-switch::after {
+	content: "";
+	position: absolute;
+	background: #fff;
+	top: 3px;
+	left: 3.5px;
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	transition: transform 0.2s ease;
+}
+
+.lithium-input-switch:checked {
+	background: #007bff;
+}
+
+.lithium-input-switch:checked::after {
+	transform: translateX(19px);
+}
+
+.lithium-input-image {
+	display: none;
+}
+
+.lithium-input-image-label {
+	position: relative;
+    z-index: 9;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-basis: 100%;
+	background: var(--value) no-repeat center center / cover;
+	width: 100%;
+	height: 75px;
+	margin-top: 4px;
+	margin-bottom: 0;
+	border: dashed 1px rgba(255, 255, 255, 0.1);
+	border-radius: 4px;
+	color: rgba(255, 255, 255, 0.9);
+	font-family: inherit;
+	font-size: 13px;
+	font-weight: 300 !important;
+	text-shadow: 0 0 12px #000;
+	cursor: pointer;
+}
+
+.lithium-input-image-label::after {
+	content: 'Upload Image';
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: rgba(255, 255, 255, 0.025);
+	width: 100%;
+	height: 100%;
+	transition: background 0.5s ease, opacity 0.25s ease;
+}
+
+.lithium-input-image-label:hover::after {
+	background: rgba(255, 255, 255, 0.04);
+}
+
+.lithium-input-image-label[data-status="uploading"] {
+	border: none;
+	pointer-events: none;
+}
+
+.lithium-input-image-label[data-status="uploading"]::after {
+	content: 'Uploading...';
+	background: rgba(0, 0, 0, 0.75);
+}
+
+.lithium-input-image-label[data-status="uploaded"] {
+	border: none;
+}
+
+.lithium-input-image-label[data-status="uploaded"]::after {
+	content: 'Change Image';
+	background: rgba(0, 0, 0, 0.75);
+	opacity: 0;
+}
+
+.lithium-input-image-label[data-status="uploaded"]:hover::after {
+	opacity: 1;
+}
+
+.lithium-input-image-label:not([data-status="uploaded"]) + .lithium-input-actions .lithium-input-action-remove-image {
+	display: none;
+}
+
+.lithium-body a {
+	text-decoration: none;
+}
+
+.lithium-body a i {
+	transition: none;
+}
+
+.lithium-body hr {
+	background: rgba(255, 255, 255, 0.1);
+	height: 1px;
+	margin: 16px 0;
+	border: none;
+}
+
+.lithium-input ::-webkit-scrollbar {
+	width: 3px;
+}
+
+.lithium-input ::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.lithium-input ::-webkit-scrollbar-thumb {
+	background: rgba(255, 255, 255, 0.5);
+	border: none;
+	border-radius: 5px;
+}
+
+.lithium-input ::-webkit-scrollbar-thumb:hover {
+	background: rgba(255, 255, 255, 0.75);
+}
+
+.lithium-update-status {
+	background: rgba(255, 255, 255, 0.1);
+	padding: 6px 12px;
+    border-radius: 4px;
+	color: rgba(255, 255, 255, 0.85);
+	font-size: 13px;
+	font-weight: 500;
+}
+
+.lithium-update-status i {
+	margin-right: 6px;
+}
+
+.lithium-update-actions {
+	display: flex;
+	margin-top: 16px;
+}
+
+.lithium-update-actions .lithium-button {
+	margin-bottom: 0;
+	flex-grow: 1;
+	text-align: center;
+}
+
+.lithium-update-section:not(:first-child) {
+	margin-top: 16px;
+}
+
+.lithium-update-section-title {
+	margin-bottom: 4px;
+	color: rgba(255, 255, 255, 0.85);
+	font-size: 14px;
+	font-weight: 400;
+}
+
+.lithium-update-section-description {
+	color: rgba(255, 255, 255, 0.75);
+	font-size: 13px;
+	font-size: 300;
+}
+
+.lithium-update-section-description dl {
+	overflow: hidden;
+	margin: 0;
+}
+
+.lithium-update-section-description dl:not(:first-child) {
+	margin-top: 4px;
+}
+
+.lithium-update-section-description dt {
+	float: left;
+	max-width: 100%;
+	margin: 0;
+	margin-right: 5px;
+	color: rgba(255, 255, 255, 0.6);
+	font-size: 13px;
+	font-weight: 300;
+}
+
+.lithium-update-section-description dd {
+	float: right;
+	max-width: 100%;
+	margin: 0;
+	color: rgba(255, 255, 255, 0.8);
+	font-weight: 400;
+	text-align: right;
+}
+
+.lithium-update-section-description ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.lithium-update-section-description li {
+	color: rgba(255, 255, 255, 0.75);
+	font-size: 13px;
+}
+
+.lithium-update-section-description li::before {
+	content: '-';
+	margin: 0 8px;
+}
+
+.lithium-update-changelogs {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.lithium-update-changelogs li {
+	position: relative;
+	display: flex;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.lithium-update-changelogs li small {
+	position: absolute;
+	right: 0;
+	background: linear-gradient(to right, transparent, #212121, #212121, #212121);
+	width: 50px;
+	height: 100%;
+	color: rgba(255, 255, 255, 0.6);
+	font-size: 10px;
+	font-weight: 300;
+	text-align: right;
+}
+
+::selection {
+	background: rgba(255, 255, 255, 0.2);
+}
